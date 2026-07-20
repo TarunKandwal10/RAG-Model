@@ -161,7 +161,7 @@ else:
                     logger.debug(f"Prompt length: {len(prompt)} characters")
                     
                     chat_response = client.models.generate_content(
-                        model="gemini-2.5-flash", 
+                        model="gemini-3.5-flash", 
                         contents=prompt
                     )
                     
