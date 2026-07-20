@@ -47,12 +47,19 @@ logger.info("Streamlit page config set: page_title='Cinflex AI', layout='centere
 # Custom CSS for UI styling
 st.markdown("""
 <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
+    /* Hide the top-right Streamlit menu explicitly */
+    [data-testid="stToolbar"] {visibility: hidden !important;}
+    
+    /* Hide the 'Made with Streamlit' footer */
+    footer {visibility: hidden !important;}
+    
+    /* Force the header background to be transparent but keep elements visible */
+    header {background: transparent !important; visibility: visible !important;}
+    
+    /* Keep chat text sizing */
     .stChatMessage { font-size: 1.1rem; }
 </style>
 """, unsafe_allow_html=True)
-logger.debug("Custom CSS applied")
 
 # Sleek sidebar
 with st.sidebar:
