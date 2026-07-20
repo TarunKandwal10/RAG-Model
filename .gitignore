@@ -6,3 +6,6 @@ __pycache__/
 venv/
 __pycache__/
 netflix_titles.csv
+*.log
+app.log
+build_knowledge.log

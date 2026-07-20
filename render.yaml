@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: cinflex-ai
+    env: python
+    plan: free
+    region: oregon
+    buildCommand: |
+      pip install --no-cache-dir -r requirements.txt
+      python build_knowledge.py
+    startCommand: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+    healthCheckPath: /
+    autoDeploy: true
+    disk:
+      name: cinflex-data
+      mountPath: /app/data
+      sizeGB: 1
