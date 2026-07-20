@@ -27,7 +27,7 @@ logging.getLogger('httpcore').setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
 logger.info("=" * 60)
-logger.info("CINFLEX AI APPLICATION STARTING")
+logger.info("CINEFLEX AI APPLICATION STARTING")
 logger.info("=" * 60)
 
 # Load API key securely
@@ -41,8 +41,8 @@ if api_key:
 else:
     logger.error("No API key found in environment variables!")
 
-st.set_page_config(page_title="Cinflex AI", layout="centered")
-logger.info("Streamlit page config set: page_title='Cinflex AI', layout='centered'")
+st.set_page_config(page_title="Cineflex AI", layout="centered")
+logger.info("Streamlit page config set: page_title='Cineflex AI', layout='centered'")
 
 # Custom CSS for UI styling
 st.markdown("""
@@ -63,7 +63,7 @@ st.markdown("""
 
 # Sleek sidebar
 with st.sidebar:
-    st.title("Cinflex AI")
+    st.title("Cineflex AI")
     st.markdown("Your personal streaming assistant.")
     st.divider()
     st.markdown("**Status:** 🟢 Database Loaded Offline")
@@ -161,7 +161,7 @@ else:
                     logger.debug(f"Prompt length: {len(prompt)} characters")
                     
                     chat_response = client.models.generate_content(
-                        model="gemini-3.5-flash-8b", 
+                        model="gemini-3.5-flash-lite", 
                         contents=prompt
                     )
                     
