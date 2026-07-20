@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-# Configure extensive logging
+# Configure extensive logging - DEBUG for app, WARNING for third-party libraries
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s',
@@ -16,6 +16,16 @@ logging.basicConfig(
         logging.FileHandler('build_knowledge.log', mode='a')
     ]
 )
+
+# Silence noisy third-party loggers
+logging.getLogger('watchdog').setLevel(logging.WARNING)
+logging.getLogger('streamlit').setLevel(logging.WARNING)
+logging.getLogger('urllib3').setLevel(logging.WARNING)
+logging.getLogger('google').setLevel(logging.WARNING)
+logging.getLogger('google_genai').setLevel(logging.WARNING)
+logging.getLogger('httpx').setLevel(logging.WARNING)
+logging.getLogger('httpcore').setLevel(logging.WARNING)
+
 logger = logging.getLogger(__name__)
 logger.info("=" * 60)
 logger.info("KNOWLEDGE BASE BUILDER STARTING")
