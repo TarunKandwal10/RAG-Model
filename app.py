@@ -46,24 +46,19 @@ logger.info("Streamlit page config set: page_title='Cineflex AI', layout='center
 
 # Custom CSS for UI styling
 # Custom CSS for UI styling
+# Custom CSS for UI styling
 st.markdown("""
 <style>
-    /* 1. Hide the top-right menu (the 3 dots/deploy button) */
-    #MainMenu {visibility: hidden;}
+    /* 1. Hide only the top-right menu (the 3 dots/deploy button) */
     [data-testid="stToolbar"] {visibility: hidden;}
     
     /* 2. Hide the 'Made with Streamlit' footer */
     footer {visibility: hidden;}
     
-    /* 3. Hide the main header container... */
-    header {visibility: hidden;}
+    /* 3. Make the header transparent so it looks clean, but DO NOT hide it */
+    [data-testid="stHeader"] {background-color: transparent;}
     
-    /* 4. ...BUT explicitly force the sidebar collapsed-arrow to stay visible! */
-    [data-testid="collapsedControl"] {
-        visibility: visible !important;
-    }
-    
-    /* Keep chat text sizing */
+    /* 4. Keep chat text sizing */
     .stChatMessage { font-size: 1.1rem; }
 </style>
 """, unsafe_allow_html=True)
