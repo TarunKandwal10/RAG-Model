@@ -41,24 +41,30 @@ if api_key:
 else:
     logger.error("No API key found in environment variables!")
 
-st.set_page_config(page_title="Cineflex AI", layout="centered")
+st.set_page_config(page_title="Cineflex AI", layout="centered", initial_sidebar_state="expanded")
 logger.info("Streamlit page config set: page_title='Cineflex AI', layout='centered'")
 
 # Custom CSS for UI styling
-# Custom CSS for UI styling
-# Custom CSS for UI styling
 st.markdown("""
 <style>
-    /* 1. Hide only the top-right menu (the 3 dots/deploy button) */
+    /* 1. Hide the top-right menu (the 3 dots/deploy button) */
     [data-testid="stToolbar"] {visibility: hidden;}
     
     /* 2. Hide the 'Made with Streamlit' footer */
     footer {visibility: hidden;}
     
-    /* 3. Make the header transparent so it looks clean, but DO NOT hide it */
+    /* 3. Make the header transparent */
     [data-testid="stHeader"] {background-color: transparent;}
     
-    /* 4. Keep chat text sizing */
+    /* 4. COMPLETELY REMOVE THE SIDEBAR TOGGLE BUTTONS */
+    /* Hides the collapse arrow inside the open sidebar */
+    [data-testid="stSidebarCollapseButton"] {display: none !important;}
+    
+    /* Hides the expand arrow if the sidebar ever tries to close */
+    [data-testid="collapsedControl"] {display: none !important;}
+    [data-testid="stSidebarCollapsedControl"] {display: none !important;}
+    
+    /* Keep chat text sizing */
     .stChatMessage { font-size: 1.1rem; }
 </style>
 """, unsafe_allow_html=True)
