@@ -52,33 +52,17 @@ logger.info("Streamlit page config set: page_title='Cineflex AI', layout='center
 # Custom CSS for UI styling
 st.markdown("""
 <style>
-    /* 1. Hide the top-right menu (the 3 dots/deploy button) */
+    /* Hide the top-right menu */
     [data-testid="stToolbar"] {visibility: hidden;}
     
-    /* 2. Hide the 'Made with Streamlit' footer */
+    /* Hide the Streamlit footer */
     footer {visibility: hidden;}
     
-    /* 3. Make the header transparent but DO NOT hide it */
-    [data-testid="stHeader"] {background-color: transparent !important;}
+    /* Make header transparent */
+    [data-testid="stHeader"] {background-color: transparent;}
     
-    /* 4. FORCE the collapsed toggle button to always be visible and clickable */
-    [data-testid="collapsedControl"] {
-        visibility: visible !important;
-        display: flex !important;
-        z-index: 999999 !important; 
-    }
-    
-    /* 5. MAKE THE COLLAPSED ARROW ICON BRIGHT WHITE */
-    [data-testid="collapsedControl"] svg {
-        color: white !important;
-        fill: white !important;
-    }
-    
-    /* 6. Make the 'X' close button inside the open sidebar white as well */
-    [data-testid="stSidebarCollapseButton"] svg {
-        color: white !important;
-        fill: white !important;
-    }
+    /* REMOVE THE 'X' BUTTON FROM THE SIDEBAR SO IT CANNOT BE CLOSED */
+    [data-testid="stSidebarCollapseButton"] {display: none !important;}
     
     /* Keep chat text sizing */
     .stChatMessage { font-size: 1.1rem; }
