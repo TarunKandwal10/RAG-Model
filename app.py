@@ -49,22 +49,19 @@ st.set_page_config(
 )
 logger.info("Streamlit page config set: page_title='Cineflex AI', layout='centered'")
 
-# 2. CSS to lock it open and clean the UI
+# Custom CSS for UI styling
 st.markdown("""
 <style>
-    /* Hide the top-right menu */
+    /* 1. Hide only the top-right menu (the 3 dots/deploy button) */
     [data-testid="stToolbar"] {visibility: hidden;}
     
-    /* Hide the Streamlit footer */
+    /* 2. Hide the 'Made with Streamlit' footer */
     footer {visibility: hidden;}
     
-    /* Make header transparent */
+    /* 3. Make the header transparent so it looks clean, but DO NOT hide it */
     [data-testid="stHeader"] {background-color: transparent;}
     
-    /* REMOVE THE 'X' BUTTON FROM THE SIDEBAR SO IT CANNOT BE CLOSED */
-    [data-testid="stSidebarCollapseButton"] {display: none !important;}
-    
-    /* Keep chat text sizing */
+    /* 4. Keep chat text sizing */
     .stChatMessage { font-size: 1.1rem; }
 </style>
 """, unsafe_allow_html=True)
